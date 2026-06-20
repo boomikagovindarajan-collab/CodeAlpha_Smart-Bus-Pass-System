@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Pass</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>🚌 Smart Bus Pass System</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<div class="dashboard">
+
+    <h1>🚌 Book Pass</h1>
+
+    <form method="POST">
+
+        <input type="text" name="source" placeholder="Source" required><br><br>
+
+        <input type="text" name="destination" placeholder="Destination" required><br><br>
+        <label>Travel Date</label><br>
+        <input type="date" name="travel_date" required><br><br>
+        <label>Travel Time</label><br>
+        <input type="time" name="travel_time" required><br><br>
+        <h3>🪑 Select Seat</h3>
+
+<div class="seat-grid">
+
+    <button type="button" class="seat available">A1</button>
+    <button type="button" class="seat available">A2</button>
+
+    <div class="aisle"></div>
+
+    <button type="button" class="seat booked">A3</button>
+    <button type="button" class="seat available">A4</button>
+
+    <button type="button" class="seat available">B1</button>
+    <button type="button" class="seat available">B2</button>
+
+    <div class="aisle"></div>
+
+    <button type="button" class="seat available">B3</button>
+    <button type="button" class="seat booked">B4</button>
+
+    <button type="button" class="seat available">C1</button>
+    <button type="button" class="seat available">C2</button>
+
+    <div class="aisle"></div>
+
+    <button type="button" class="seat available">C3</button>
+    <button type="button" class="seat available">C4</button>
+
+    <button type="button" class="seat available">D1</button>
+    <button type="button" class="seat available">D2</button>
+
+    <div class="aisle"></div>
+
+    <button type="button" class="seat available">D3</button>
+    <button type="button" class="seat available">D4</button>
+
+</div>
+
+<input type="hidden" name="seat_no" id="seat_no" required>
+
+        <label>Select Seat</label><br>
+        <select name="seat_no" required>
+           <option value="">Choose Seat</option>
+           <option value="A1">A1 - Window</option>
+           <option value="A2">A2</option>
+           <option value="A3">A3</option>
+           <option value="A4">A4</option>
+            <option value="B1">B1 - Window</option>
+           <option value="B2">B2</option>
+           <option value="B3">B3</option>
+           <option value="B4">B4</option>
+        </select><br><br>
+
+        <select name="pass_type">
+            <option>Daily</option>
+            <option>Weekly</option>
+            <option>Monthly</option>
+        </select><br><br>
+
+        <button type="submit" class="btn">Book Pass</button>
+
+    </form>
+{% if booked %}
+
+<div class="success-card">
+    <h2>✅ Pass Booked Successfully</h2>
+
+    <p><strong>Source:</strong> {{ source }}</p>
+    <p><strong>Destination:</strong> {{ destination }}</p>
+    <p><strong>Travel Date:</strong> {{ travel_date }}</p>
+    <p><strong>Travel Time:</strong> {{ travel_time }}</p>
+    <p><strong>Seat Number:</strong> {{ seat_no }}</p>
+    <p><strong>Pass Type:</strong> {{ pass_type }}</p>
+    <p><strong>Price:</strong> ₹{{ price }}</p>
+    <p><strong>Pass ID:</strong> {{ pass_id }}</p>
+    <h3>QR Code</h3>
+<img src="{{ url_for('static', filename=qr_image) }}" width="200">
+
+    <a href="/dashboard" class="btn">Back to Dashboard</a>
+</div>
+
+{% endif %}
+
+</div>
+<script>
+const seats = document.querySelectorAll('.available');
+const seatInput = document.getElementById('seat_no');
+
+seats.forEach(seat => {
+    seat.addEventListener('click', () => {
+
+        document.querySelectorAll('.available')
+            .forEach(s => s.classList.remove('selected'));
+
+        seat.classList.add('selected');
+        seatInput.value = seat.innerText;
+    });
+});
+</script>
+
+</body>
+</html>

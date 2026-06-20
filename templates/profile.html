@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <h2>🚌 Smart Bus Pass System</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<h1>👤 Profile</h1>
+
+<h2>Welcome {{ username }}</h2>
+
+<a href="/dashboard">Back Dashboard</a>
+
+</body>
+</html>

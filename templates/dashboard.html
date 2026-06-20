@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="navbar">
+    <h2>🚌 Smart Bus Pass System</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+<div class="dashboard">
+
+    <h1>👋 Welcome {{ username }}</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>🚌 Active Passes</h2>
+            <p>3</p>
+        </div>
+
+        <div class="card">
+            <h2>💰 Total Saved</h2>
+            <p>₹1500</p>
+        </div>
+
+        <div class="card">
+            <h2>📅 Validity</h2>
+            <p>30 Days</p>
+        </div>
+
+    </div>
+
+    <div class="buttons">
+        <a href="/book" class="btn">Book Pass</a>
+        <a href="/history" class="btn">Booking History</a>
+        <a href="/profile" class="btn">Profile</a>
+        <a href="/logout" class="btn logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

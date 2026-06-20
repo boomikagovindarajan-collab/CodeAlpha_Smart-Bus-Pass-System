@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking History</title>
+    
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>🚌 Smart Bus Pass System</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+        <a href="/history">History</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<h1>📜 Booking History</h1>
+
+<table>
+<tr>
+    <th>Pass ID</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Travel Date</th>
+    <th>Seat</th>
+    <th>Type</th>
+    <th>Price</th>
+</tr>
+
+<tr>
+    <td>BP1234</td>
+    <td>Chennai</td>
+    <td>Coimbatore</td>
+    <td>15-02-2026</td>
+    <td>A2</td>
+    <td>Monthly</td>
+    <td>₹800</td>
+</tr>
+
+<tr>
+    <td>BP1235</td>
+    <td>Coimbatore</td>
+    <td>Trichy</td>
+    <td>22-04-2026</td>
+    <td>B3</td>
+    <td>Weekly</td>
+    <td>₹500</td>
+</tr>
+
+<tr>
+    <td>BP1236</td>
+    <td>Salem</td>
+    <td>Erode</td>
+    <td>10-05-2026</td>
+    <td>C1</td>
+    <td>Daily</td>
+    <td>₹150</td>
+</tr>
+</table>
+
+</body>
+</html>
